@@ -5944,6 +5944,43 @@ fieldset:disabled .btn {
     white-space: nowrap
 }
 
+@media (max-width: 1000px) {
+    .text-title {
+      font-size: 2rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .img-carousel {
+      width: 80px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      visibility: hidden;
+    }
+}
+
+@media (min-width: 1000px) {
+    .img-carousel {
+      width: 95px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .contact {
+      width: 100%;
+      order: 0 !important;
+    }
+}
+
+.divider-logo{
+    background-repeat: repeat-x;
+    background-image: url("/img/icons/section-divider.png");
+    width:100%; 
+}
+
 .btn-Metamask {
     background-color: black;
     color: white;
@@ -5954,6 +5991,17 @@ fieldset:disabled .btn {
     border-color: #8C52FF;
     color: #8C52FF;
 }
+
+img.metamask-icon {
+    stroke: #8C52FF;
+}
+
+.btn-Metamask:hover, img.metamask-icon{
+    stroke: #8C52FF;
+    color: #8C52FF;
+}
+
+
 
 @media(min-width: 1200px) {
     .navbar-brand {
