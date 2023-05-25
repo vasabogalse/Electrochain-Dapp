@@ -20,6 +20,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import AdminLayout from "layouts/Admin/Admin.js";
+import LandingLayout from "layouts/Landing/Landing.js";
 import RTLLayout from "layouts/RTL/RTL.js";
 
 import "assets/scss/black-dashboard-react.scss";
@@ -72,6 +73,7 @@ root.render(
           <BrowserRouter>
             <Routes>
               <Route path="/admin/*" element={<AdminLayout />} />
+              <Route path="/landing/*" element={<LandingLayout />} />
               <Route path="/rtl/*" element={<RTLLayout />} />
               <Route
                 path="*"
