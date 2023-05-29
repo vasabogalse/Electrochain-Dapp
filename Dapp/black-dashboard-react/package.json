@@ -5,7 +5,7 @@
   "homepage": "https://demos.creative-tim.com/black-dashboard-react/#/admin/dashboard",
   "dependencies": {
     "@adraffy/ens-normalize": "^1.9.0",
-    "@fortawesome/fontawesome-free": "6.4.0",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@rainbow-me/rainbowkit": "^1.0.0",
     "bootstrap": "4.6.2",
     "chart.js": "3.9.1",
@@ -29,7 +29,7 @@
     "wagmi": "^1.0.5"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider && react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -62,7 +62,6 @@
     "svgo": "3.0.2"
   },
   "engines": {
-    "node": "v16.18.1",
-    "npm": "^6.14.12"
+    "node": "v14.x"
   }
 }
