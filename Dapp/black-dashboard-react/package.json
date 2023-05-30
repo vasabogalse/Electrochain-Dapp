@@ -30,7 +30,8 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "vite build",
+    "dev": "vite serve",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
@@ -55,8 +56,11 @@
     "reactstrap": "8.10.1"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
     "react-app-rewired": "^2.2.1",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "vite": "^4.3.9",
+    "vite-plugin-html": "^3.2.0"
   },
   "overrides": {
     "svgo": "3.0.2"
