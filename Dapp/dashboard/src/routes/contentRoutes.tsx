@@ -210,7 +210,7 @@ const presentation: RouteProps[] = [
 		element: <LANDING.SUMMARY />,
 	}, */
 	{
-		path: dashboardPagesMenu.welcome.path,
+		path: dashboardPagesMenu.dashboard.path,
 		element: <LANDING.WELCOME />,
 	},
 	{
