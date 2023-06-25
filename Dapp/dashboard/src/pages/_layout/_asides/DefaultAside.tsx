@@ -40,10 +40,10 @@ const DefaultAside = () => {
 				{!doc && (
 					<>
 						<Navigation menu={dashboardPagesMenu} id='aside-dashboard' />
-						<NavigationLine />
+						{/* <NavigationLine />
 						<Navigation menu={demoPagesMenu} id='aside-demo-pages' />
 						<NavigationLine />
-						<Navigation menu={pageLayoutTypesPagesMenu} id='aside-menu' />
+						<Navigation menu={pageLayoutTypesPagesMenu} id='aside-menu' /> */}
 					</>
 				)}
 
@@ -89,7 +89,7 @@ const DefaultAside = () => {
 							className='navigation-item cursor-pointer'
 							onClick={() => {
 								localStorage.setItem('facit_asideDocStatus', String(!doc));
-								setDoc(!doc);
+								//setDoc(!doc);
 							}}
 							data-tour='documentation'>
 							<span className='navigation-link navigation-link-pill'>
