@@ -332,7 +332,7 @@ const SummaryPage = () => {
 								</p>
 								<p className='h2 mb-5'>
 									Toma un cafe, un poco de tiempo {' '}
-									<span className='text-info'>y explora.</span>
+									<span className='text-info'>y empieza a explorar.</span>
 								</p>
 								<Button
 									color='primary'
