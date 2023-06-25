@@ -30,14 +30,47 @@ export const summaryPageTopMenu = {
 	},
 };
 
+export const welcomePageTopMenu = {
+	intro: { id: 'intro', text: 'Intro', path: '#intro', icon: 'Vrpano', subMenu: null },
+	bootstrap: {
+		id: 'bootstrap',
+		text: 'Bootstrap Components',
+		path: '#bootstrap',
+		icon: 'BootstrapFill',
+		subMenu: null,
+	},
+	storybook: {
+		id: 'storybook',
+		text: 'Storybook',
+		path: '#storybook',
+		icon: 'CustomStorybook',
+		subMenu: null,
+	},
+	formik: {
+		id: 'formik',
+		text: 'Formik',
+		path: '#formik',
+		icon: 'CheckBox',
+		subMenu: null,
+	},
+	apex: {
+		id: 'apex',
+		text: 'Apex Charts',
+		path: '#apex',
+		icon: 'AreaChart',
+		subMenu: null,
+	},
+};
+
 export const dashboardPagesMenu = {
 	dashboard: {
 		id: 'dashboard',
-		text: 'Dashboard',
+		text: 'Welcome',
 		path: '/',
-		icon: 'Dashboard',
+		icon: 'sticky_note_2',
 		subMenu: null,
 	},
+	/*
 	dashboardProject: {
 		id: 'dashboardProject',
 		text: 'Dashboard Projects',
@@ -45,34 +78,42 @@ export const dashboardPagesMenu = {
 		icon: 'AutoStories',
 		notification: true,
 		subMenu: null,
-	},
-	dashboardBooking: {
+	},*/
+	/* dashboardBooking: {
 		id: 'dashboard-booking',
 		text: 'Dashboard Booking',
 		path: 'dashboard-booking',
 		icon: 'emoji_transportation',
 		subMenu: null,
-	},
+	},  */
 	crmDashboard: {
 		id: 'crmDashboard',
-		text: 'CRM Dashboard',
+		text: 'Dashboard',
 		path: 'crm/dashboard',
-		icon: 'RecentActors',
+		icon: 'Dashboard',
+		//icon: 'RecentActors',
 	},
-	summary: {
+	/* summary: {
 		id: 'summary',
 		text: 'Summary',
 		path: 'summary',
 		icon: 'sticky_note_2',
 		subMenu: null,
-	},
+	}, */
+	/* welcome: {
+		id: 'welcome',
+		text: 'Dashboard',
+		path: '/welcome',
+		icon: 'Dashboard',
+		subMenu: null,
+		//notification: 'info'
+	}, */
 	github: {
 		id: 'github',
-		text: 'GitHub Access',
+		text: 'GitHub',
 		path: 'github-access',
 		icon: 'CustomGithub',
 		subMenu: null,
-		notification: 'info',
 	},
 };
 
@@ -193,7 +234,6 @@ export const demoPagesMenu = {
 		path: 'pricing-table',
 		icon: 'Local Offer',
 	},
-
 	app: {
 		id: 'app',
 		text: 'Apps',
@@ -296,7 +336,7 @@ export const demoPagesMenu = {
 		path: 'appointment',
 		icon: 'Today',
 		subMenu: {
-			dashboard: dashboardPagesMenu.dashboardBooking,
+			dashboard: dashboardPagesMenu.dashboard,
 			calendar: {
 				id: 'calendar',
 				text: 'Calendar',
@@ -400,7 +440,6 @@ export const demoPagesMenu = {
 			},
 		},
 	},
-
 	auth: {
 		id: 'auth',
 		text: 'Auth Pages',
