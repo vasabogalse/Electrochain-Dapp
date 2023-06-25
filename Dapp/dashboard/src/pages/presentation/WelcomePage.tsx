@@ -325,14 +325,14 @@ const SummaryPage = () => {
 							)}>
 							<div>
 								<h1 className='display-1 mb-4'>
-									Bienvenido a la dApp Electrochain<Logo2 height={70} />
+									Bienvenido a la dApp de Electrochain.org<Logo2 height={70} />
 								</h1>
 								<p className='display-6 mb-4'>
-									Todo lo que necesitas para gestionar energía tokenizada.
+									Todo lo que necesitas para gestionar tu energía tokenizada.
 								</p>
 								<p className='h2 mb-5'>
 									Toma un cafe, un poco de tiempo {' '}
-									<span className='text-info'>y explora nuestra solución</span>
+									<span className='text-info'>y explora.</span>
 								</p>
 								<Button
 									color='primary'
@@ -342,7 +342,7 @@ const SummaryPage = () => {
 									icon='Class'
 									tag='a'
 									to='#bootstrap'>
-									Read More
+									Comenzar
 								</Button>
 							</div>
 						</div>
