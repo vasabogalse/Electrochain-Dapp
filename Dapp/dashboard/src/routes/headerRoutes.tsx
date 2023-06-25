@@ -40,10 +40,10 @@ const headers: RouteProps[] = [
 		element: <DashboardHeader />,
 	},
 	{ path: demoPagesMenu.pricingTable.path, element: <DashboardHeader /> },
-	{
+	/* {
 		path: dashboardPagesMenu.dashboardBooking.path,
 		element: <DashboardBookingHeader />,
-	},
+	}, */
 	{
 		path: demoPagesMenu.appointment.subMenu.calendar.path,
 		element: <DashboardBookingHeader />,
@@ -104,10 +104,10 @@ const headers: RouteProps[] = [
 		path: `${demoPagesMenu.crm.subMenu.customerID.path}/:id`,
 		element: <ProfilePageHeader />,
 	},
-	{
+	/* {
 		path: dashboardPagesMenu.summary.path,
 		element: <SummaryHeader />,
-	},
+	}, */
 	{
 		path: demoPagesMenu.gridPages.subMenu.gridBoxed.path,
 		element: <ProductsHeader />,

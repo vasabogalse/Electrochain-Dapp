@@ -11,16 +11,17 @@ const DefaultFooter = () => {
 			<div className='container-fluid'>
 				<div className='row'>
 					<div className='col'>
-						<span className='fw-light'>Copyright © 2023 - Version 4.3.0</span>
+						<span className='fw-light'>v1.0.0</span>
 					</div>
 					<div className='col-auto'>
 						<a
-							href='/'
+							href='https://www.electrochain.org'
+							target='_blank'
 							className={classNames('text-decoration-none', {
 								'link-dark': !darkModeStatus,
 								'link-light': darkModeStatus,
 							})}>
-							<small className='fw-bold'>Facit Theme</small>
+							<small className='fw-bold'> © 2023 | Electrochain.org</small>
 						</a>
 					</div>
 				</div>

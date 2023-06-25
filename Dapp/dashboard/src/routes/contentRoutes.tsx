@@ -11,9 +11,12 @@ import Login from '../pages/presentation/auth/Login';
 import GitHubAccessPage from '../pages/presentation/GitHubAccessPage';
 
 const LANDING = {
-	DASHBOARD: lazy(() => import('../pages/presentation/dashboard/DashboardPage')),
+	//DASHBOARD: lazy(() => import('../pages/presentation/dashboard/DashboardPage')),
+	DASHBOARD: lazy(() =>  import('../pages/presentation/WelcomePage')),
 	DASHBOARD_BOOKING: lazy(() => import('../pages/presentation/dashboard/DashboardBookingPage')),
 	SUMMARY: lazy(() => import('../pages/presentation/SummaryPage')),
+	// WELCOME: lazy(() => import('../pages/presentation/WelcomePage')),
+	WELCOME: lazy(() => import('../pages/presentation/dashboard/DashboardBookingPage')),
 };
 const SINGLE = {
 	BOXED: lazy(() => import('../pages/presentation/single-pages/SingleBoxedPage')),
@@ -198,13 +201,17 @@ const presentation: RouteProps[] = [
 		path: dashboardPagesMenu.dashboard.path,
 		element: <LANDING.DASHBOARD />,
 	},
-	{
+	/* {
 		path: dashboardPagesMenu.dashboardBooking.path,
 		element: <LANDING.DASHBOARD_BOOKING />,
-	},
-	{
+	}, */
+	/* {
 		path: dashboardPagesMenu.summary.path,
 		element: <LANDING.SUMMARY />,
+	}, */
+	{
+		path: dashboardPagesMenu.dashboard.path,
+		element: <LANDING.WELCOME />,
 	},
 	{
 		path: dashboardPagesMenu.github.path,
