@@ -633,6 +633,20 @@ h2,
     }
 }
 
+.floating-img{
+    transform: translateY(-2.3%);
+    animation: floater 2s infinite;
+    transition: ease 0.08s;
+  }
+  
+  
+  
+  @keyframes floater {
+    0%{transform: translateY(-2.3%);transition: ease 0.08s;}
+    50%{transform: translateY(2.3%);transition: ease 0.08s;}
+  }
+  
+
 h3,
 .h3 {
     font-size: calc(1.3027rem + 0.6324vw)
