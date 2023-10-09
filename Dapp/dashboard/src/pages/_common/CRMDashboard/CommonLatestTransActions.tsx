@@ -12,32 +12,8 @@ import Button from '../../../components/bootstrap/Button';
 import { priceFormat } from '../../../helpers/helpers';
 import useDarkMode from '../../../hooks/useDarkMode';
 import { demoPagesMenu } from '../../../menu';
-import data from '../../../common/data/dummyEventsData';
-
-//const api_url = new URL('https://api.etherscan.io/api?module=account&action=txlist&address=0x1eEB5efeaA5CaeA8594D5b35E7912f230a1703A9&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=Z44D1BPXP6NVZVUERH1ICBJ91UJIS1YWC6');
-/* const api_url = new URL('https://api-goerli.etherscan.io/api?module=account&action=tokentx&contractaddress=0x61b619fF6A4b198833b77f5DCa65674DA805C647&page=1&offset=100&sort=asc&apikey=Z44D1BPXP6NVZVUERH1ICBJ91UJIS1YWC6');
-
-const TXData = (async function () {
-	const response = await fetch(api_url.toString());
-	const data = await response.json();
-	console.log(data)
-})() */
-
-
-
-
-
-
 
 type TStatus = 'Succed' | 'Pending' | 'Failed';
-/* interface ITransactionsItemProps {
-	id: number;
-	date: string;
-	status: TStatus;
-	email: string;
-	price: number;
-	tax: number;
-} */
 
 interface ITransactionsItemProps {
 	blockNumber: number;
@@ -48,21 +24,21 @@ interface ITransactionsItemProps {
 	transactionIndex: number;
 }
 
+const txHashToExplorer = (hash:string) => {
+	return `https://goerli.etherscan.io/tx/${hash}`
+}
+
+const timeStampToDate = (tm:any) => {
+	const date = new Date(tm*1000);
+	const options = { year: 'string', month: 'long', day: 'numeric' };
+	const formattedDate = new Intl.DateTimeFormat('en-US').format(date);
+	return `${formattedDate} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+}
+
 
 const TransactionsItem: FC<ITransactionsItemProps> = ({ blockNumber, timeStamp, hash, nonce, blockHash, transactionIndex }) => {
 	const { darkModeStatus } = useDarkMode();
-	const [userData, setUserData] = useState<any>([]);
-	const api_url = new URL('https://api-goerli.etherscan.io/api?module=account&action=tokentx&contractaddress=0x61b619fF6A4b198833b77f5DCa65674DA805C647&page=1&offset=100&sort=asc&apikey=Z44D1BPXP6NVZVUERH1ICBJ91UJIS1YWC6');
 	
-	useEffect(() => {
-		const TXData:any = (async function () {
-			const response = await fetch(api_url.toString());
-			console.log('useEffect')
-			setUserData(await response.json()) 
-			console.log(userData)
-		})()	
-	}, []);
-
 	const STATUS =
 		(status === 'Succed' && 'success') ||
 		(status === 'Pending' && 'warning') ||
@@ -82,19 +58,19 @@ const TransactionsItem: FC<ITransactionsItemProps> = ({ blockNumber, timeStamp, 
 						</div>
 					</div>
 					<div className='flex-grow-1'>
-						<div className='fs-6'>{timeStamp}</div>
+						<div className='fs-6'>{timeStampToDate(timeStamp)}</div>
 						<div className='text-muted'>
-							<small>{hash}</small>
+							<small><a target="_blank" href={txHashToExplorer(hash)}>{hash.slice(0,6)+ '...' + hash.substring(hash.length - 5)}</a></small>
 						</div>
 					</div>
 				</div>
 				<div className='col-auto text-end'>
 					<div>
 					{/* 	<strong>{priceFormat(price)}</strong> */}
-						<strong>{blockHash}</strong>
+						<strong>Block {blockNumber}</strong>
 					</div>
 					<div className='text-muted'>
-						<small>Tax {nonce}</small>
+						<small>Nonce {nonce}</small>
 					</div>
 				</div>
 			</div>
@@ -103,17 +79,20 @@ const TransactionsItem: FC<ITransactionsItemProps> = ({ blockNumber, timeStamp, 
 };
 
 
-const CommonLatestTransActions = (userData:any) => {
+const CommonLatestTransActions = () => {
+	const [userData, setUserData] = useState<ITransactionsItemProps[]>([]);
+	const api_url = new URL('https://api-goerli.etherscan.io/api?module=account&action=tokentx&contractaddress=0x61b619fF6A4b198833b77f5DCa65674DA805C647&page=1&offset=100&sort=asc&apikey=Z44D1BPXP6NVZVUERH1ICBJ91UJIS1YWC6');
+	useEffect(() => {
+		(async function () {
+			const response = await fetch(api_url.toString());
+			const data = await response.json()
+			console.log(data)
+			setUserData(data.result) 		
+		})()	
+		console.log(userData)
+	}, []);
 	const transactionsData: ITransactionsItemProps[] = [
 		...userData,
-		{
-			id: 1,
-			blockNumber: dayjs().format('ll'),
-			hash: 'Succed',
-			nonce: 'prueba@facit.com',
-			blockHash: 34,
-			transactionIndex: 7.6,
-		},
 	];
 	return (
 		<Card stretch>
@@ -136,10 +115,10 @@ const CommonLatestTransActions = (userData:any) => {
 			</CardHeader>
 			<CardBody isScrollable>
 				<div className='row g-4'>
-					{/* {transactionsData.map((el:any) => (
+					{transactionsData.map((el:ITransactionsItemProps) => (
 						// eslint-disable-next-line react/jsx-props-no-spreading
-						//<TransactionsItem { blockNumber, timeStamp, hash, nonce, blockHash, transactionIndex } />
-					))} */}
+						<TransactionsItem {...el}/>
+					))}
 				</div>
 			</CardBody>
 		</Card>
