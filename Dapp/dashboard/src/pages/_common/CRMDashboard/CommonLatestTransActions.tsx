@@ -15,13 +15,13 @@ import { demoPagesMenu } from '../../../menu';
 import data from '../../../common/data/dummyEventsData';
 
 //const api_url = new URL('https://api.etherscan.io/api?module=account&action=txlist&address=0x1eEB5efeaA5CaeA8594D5b35E7912f230a1703A9&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=Z44D1BPXP6NVZVUERH1ICBJ91UJIS1YWC6');
-const api_url = new URL('https://api-goerli.etherscan.io/api?module=account&action=tokentx&contractaddress=0x61b619fF6A4b198833b77f5DCa65674DA805C647&page=1&offset=100&sort=asc&apikey=Z44D1BPXP6NVZVUERH1ICBJ91UJIS1YWC6');
+/* const api_url = new URL('https://api-goerli.etherscan.io/api?module=account&action=tokentx&contractaddress=0x61b619fF6A4b198833b77f5DCa65674DA805C647&page=1&offset=100&sort=asc&apikey=Z44D1BPXP6NVZVUERH1ICBJ91UJIS1YWC6');
 
 const TXData = (async function () {
 	const response = await fetch(api_url.toString());
 	const data = await response.json();
 	console.log(data)
-})()
+})() */
 
 
 
@@ -52,6 +52,8 @@ interface ITransactionsItemProps {
 const TransactionsItem: FC<ITransactionsItemProps> = ({ blockNumber, timeStamp, hash, nonce, blockHash, transactionIndex }) => {
 	const { darkModeStatus } = useDarkMode();
 	const [userData, setUserData] = useState<any>([]);
+	const api_url = new URL('https://api-goerli.etherscan.io/api?module=account&action=tokentx&contractaddress=0x61b619fF6A4b198833b77f5DCa65674DA805C647&page=1&offset=100&sort=asc&apikey=Z44D1BPXP6NVZVUERH1ICBJ91UJIS1YWC6');
+	
 	useEffect(() => {
 		const TXData:any = (async function () {
 			const response = await fetch(api_url.toString());
@@ -101,65 +103,17 @@ const TransactionsItem: FC<ITransactionsItemProps> = ({ blockNumber, timeStamp, 
 };
 
 
-const CommonLatestTransActions = () => {
+const CommonLatestTransActions = (userData:any) => {
 	const transactionsData: ITransactionsItemProps[] = [
-		data
-		/* {
+		...userData,
+		{
 			id: 1,
-			date: dayjs().format('ll'),
-			status: 'Succed',
-			email: 'prueba@facit.com',
-			price: 34,
-			tax: 7.6,
+			blockNumber: dayjs().format('ll'),
+			hash: 'Succed',
+			nonce: 'prueba@facit.com',
+			blockHash: 34,
+			transactionIndex: 7.6,
 		},
-		{
-			id: 2,
-			date: dayjs().add(-1, 'day').format('ll'),
-			status: 'Pending',
-			email: 'grace@facit.com',
-			price: 24,
-			tax: 5.4,
-		},
-		{
-			id: 3,
-			date: dayjs().add(-2, 'day').format('ll'),
-			status: 'Succed',
-			email: 'jane@facit.com',
-			price: 75,
-			tax: 18,
-		},
-		{
-			id: 4,
-			date: dayjs().add(-2, 'day').format('ll'),
-			status: 'Succed',
-			email: 'grace@facit.com',
-			price: 43,
-			tax: 9.2,
-		},
-		{
-			id: 5,
-			date: dayjs().add(-3, 'day').format('ll'),
-			status: 'Failed',
-			email: 'ryan@facit.com',
-			price: 48,
-			tax: 11,
-		},
-		{
-			id: 6,
-			date: dayjs().add(-3, 'day').format('ll'),
-			status: 'Succed',
-			email: 'sam@facit.com',
-			price: 64,
-			tax: 15.4,
-		},
-		{
-			id: 7,
-			date: dayjs().add(-3, 'day').format('ll'),
-			status: 'Pending',
-			email: 'ella@facit.com',
-			price: 78,
-			tax: 18,
-		}, */
 	];
 	return (
 		<Card stretch>
@@ -182,10 +136,10 @@ const CommonLatestTransActions = () => {
 			</CardHeader>
 			<CardBody isScrollable>
 				<div className='row g-4'>
-					{transactionsData.map((i) => (
+					{/* {transactionsData.map((el:any) => (
 						// eslint-disable-next-line react/jsx-props-no-spreading
-						<TransactionsItem key={i.id} {...i} />
-					))}
+						//<TransactionsItem { blockNumber, timeStamp, hash, nonce, blockHash, transactionIndex } />
+					))} */}
 				</div>
 			</CardBody>
 		</Card>
