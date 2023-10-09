@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import classNames from 'classnames';
 import Card, {
@@ -25,6 +25,10 @@ const TXData = (async function () {
 
 
 
+
+
+
+
 type TStatus = 'Succed' | 'Pending' | 'Failed';
 /* interface ITransactionsItemProps {
 	id: number;
@@ -47,6 +51,15 @@ interface ITransactionsItemProps {
 
 const TransactionsItem: FC<ITransactionsItemProps> = ({ blockNumber, timeStamp, hash, nonce, blockHash, transactionIndex }) => {
 	const { darkModeStatus } = useDarkMode();
+	const [userData, setUserData] = useState<any>([]);
+	useEffect(() => {
+		const TXData:any = (async function () {
+			const response = await fetch(api_url.toString());
+			console.log('useEffect')
+			setUserData(await response.json()) 
+			console.log(userData)
+		})()	
+	}, []);
 
 	const STATUS =
 		(status === 'Succed' && 'success') ||
